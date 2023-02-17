@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="assets/img/logo-text.svg">
+    <meta property="og:title" content="OPERATIONS RESEARCH SOCIETY CLUB">
+    <title>ORSC</title>
+    <link rel="stylesheet" href="main.css">
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="content">
+
+            <img class="logo pointer" src="assets/img/logo-text.svg" alt="operations research society club logo">
+            <button id="open-btn" class="open-btn pointer" onclick="openNav()">
+                <img class="ham" src="assets/img/icons/ham.svg" alt="menu icon">
+            </button>
+
+
+            <nav id="Nav" class="links">
+
+                <button id="close-btn" class="close-btn pointer" onclick="closeNav()">
+                    <img class="X" src="assets/img/icons/X.svg" alt="close button icon">
+                </button>
+                <ul>
+                    <li> <a class="link" href="#about" onclick="closeNav()">About-Us</a>
+                    </li>
+                    <li> <a class="link" href="#events" onclick="closeNav()">Events</a>
+                    </li>
+                    <li> <a class="link" href="#projects" onclick="closeNav()">Projects</a>
+                    </li>
+                    <li> <a class="link" href="#news-letter" onclick="closeNav()">News-Letter</a>
+                    </li>
+                    <li> <a class="link" href="#FAQ" onclick="closeNav()">FAQ</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+    </div>
+    <main>
+
+        <section id="about">
+            <div class="title">
+                <h2>WHAT IS ORSC ?</h2>
+            </div>
+            <div class="content">
+                <div class="card">
+
+                    <p class="descreption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur reiciendis corrupti veritatis
+                        est accusamus dolorem expedita veniam molestias at voluptatum voluptas necessitatibus animi
+                        numquam repellendus libero, harum rerum perspiciatis facere.</p>
+
+                </div>
+                <div class="logo card">
+                    <div class="logo-stat">
+                        <p> <span>150</span> <br> MEMBERS</p>
+                        <p> <span>10</span> <br> EVENTS</p>
+                        <p> <span>10</span> <br> PROJECTS</p>
+                    </div>
+                    <img src="assets/img/logo.png" alt="operations research society club logo">
+                </div>
+
+            </div>
+            </div>
+        </section>
+        <section id="events">
+            <div class="title">
+                <h2>OUR EVENTS</h2>
+            </div>
+            <div class="content">
+
+                <div class="event card">
+                    <img src="assets/img/logo optimus fest.png" alt="">
+                    <div class="card-content">
+                        <h4>OPTIMUS FEST</h4>
+                        <p class="desc"> event descreptionevent descreptionevent descreption</p>
+                    </div>
+                </div>
+                <div class="event card">
+                    <img src="assets/img/logo talks.png" alt="">
+                    <div class="card-content">
+                        <h4>TALKS</h4>
+                        <p class="desc"> event descreptionevent descreptionevent descreption</p>
+                    </div>
+                </div>
+
+
+                <div class="event card">
+                    <img src="assets/img/Logo ORigin 1.png" alt="">
+                    <div class="card-content">
+                        <h4>ORIGIN</h4>
+                        <p class="desc">event descreptionevent descreptionevent descreption</p>
+                    </div>
+                </div>
+
+
+                <div class="event card">
+                    <img src="assets/img/logo camp 1.png" alt="">
+                    <div class="card-content">
+                        <h4>ORS CAMP</h4>
+                        <p class="desc">event descreptionevent descreptionevent descreption</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="projects">
+            <div class="title">
+                <h2>OUR PROJECTS</h2>
+            </div>
+            <div class="content">
+
+            </div>
+        </section>
+        <section id="news-letter">
+            <div class="title">
+                <h2>JOIN OUR MAILING LIST</h2>
+            </div>
+            <div class="content">
+                <div class="vis">
+                    <img class="drop-shadow" src="assets/img/art-mail.png" alt="mail art">
+                </div>
+                <form id="mailing" action="">
+                    <p class="card mail"> Email</p>
+                    <input class="card mail no-outline" id="email" placeholder="orsc@mail.com" type="email">
+                    <button type="submit" class="card mail">Subscrcibe</button>
+                </form>
+
+            </div>
+        </section>
+        <section id="FAQ">
+            <div class="title">
+                <h2>FREQUENTLY ASKED QUESTIONS</h2>
+            </div>
+            <div class="content">
+
+                <div class="questions">
+                    <div class=" card" onclick="openQuestion(1)">
+                        <div class="question">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing.
+                            </p>
+                            <button id="b1" class="expand pointer" onclick="openQuestion(1)">
+                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(1)">
+                            </button>
+                        </div>
+                        <div id="1" class="answer">
+                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam quia dolores sint
+                                tempora? Est veniam voluptatibus enim velit, possimus consectetur ad nesciunt dicta
+                                molestias non debitis suscipit commodi rem.</P>
+                        </div>
+                    </div>
+                    <div class=" card" onclick="openQuestion(2)">
+                        <div class="question">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing.
+                            </p>
+                            <button id="b2" class="expand pointer" onclick="openQuestion(2)">
+                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(2)">
+                            </button>
+                        </div>
+                        <div id="2" class="answer">
+                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam quia dolores sint
+                                tempora? Est veniam voluptatibus enim velit, possimus consectetur ad nesciunt dicta
+                                molestias non debitis suscipit commodi rem.</P>
+                        </div>
+                    </div>
+                    <div class=" card">
+                        <div class="question" onclick="openQuestion(3)">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing.
+                            </p>
+                            <button id="b3" class="expand pointer" onclick="openQuestion(3)">
+                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(3)">
+                            </button>
+                        </div>
+                        <div id="3" class="answer">
+                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam quia dolores sint
+                                tempora? Est veniam voluptatibus enim velit, possimus consectetur ad nesciunt dicta
+                                molestias non debitis suscipit commodi rem.</P>
+                        </div>
+                    </div>
+                    <div class=" card" onclick="openQuestion(4)">
+                        <div class="question">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing.
+                            </p>
+                            <button id="b4" class="expand pointer" onclick="openQuestion(4)">
+                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(4)">
+                            </button>
+                        </div>
+                        <div id="4" class="answer">
+                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam quia dolores sint
+                                tempora? Est veniam voluptatibus enim velit, possimus consectetur ad nesciunt dicta
+                                molestias non debitis suscipit commodi rem.</P>
+                        </div>
+                    </div>
+                </div>
+                <div class="vis">
+                    <img class="drop-shadow" src="assets/img/art-faq.png" alt="mail art">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="content">
+            <div class="name">
+                <p>
+                    OPERATIONS RESEARCH SOCIETY CLUB
+                </p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/orsocietyclub/" rel="noreferrer noopener" target="_blank">
+                    <img class="icon " src="assets/img/icons/facebook.svg" alt="">
+                </a>
+                <a href="https://www.instagram.com/orsocietyclub/" rel="noreferrer noopener" target="_blank">
+                    <img class="icon" src="assets/img/icons/instagram.svg" alt="">
+                </a>
+                <a href="https://www.linkedin.com/company/orsocietyclub/" rel="noreferrer noopener" target="_blank">
+                    <img class="icon" src="assets/img/icons/linkedin.svg" alt="">
+                </a>
+                <a href="https://www.youtube.com/@OperationsResearchSocietyClub" rel="noreferrer noopener" target="_blank">
+                    <img class="icon" src="assets/img/icons/youtube.svg" alt="">
+                </a>
+            </div>
+            <div class="site-links">
+                <ul>
+                    <li> <a class="link" href="#about">About-Us</a>
+                    </li>
+                    <li> <a class="link" href="#events">Events</a>
+                    </li>
+                    <li> <a class="link" href="#projects">Projects</a>
+                    </li>
+                    <li> <a class="link" href="#news-letter">News-Letter</a>
+                    </li>
+                    <li> <a class="link" href="#FAQ">FAQ</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="info-grid">
+                <div class="location">
+                    <img class="icon" src="assets/img/icons/location-dot-solid.svg" alt="">
+                    <a class="link">
+                        University of Sciences and Technology Houari Boumediene<br>
+                        BP 32 EL ALIA Bab Ezzouar <br>
+                        Bab Ezzouar, 16111
+                    </a>
+                </div>
+                <div class="e-mail">
+                    <img class="icon" src="assets/img/icons/envelope-solid.svg" alt="">
+                    <a class="link">crorsclub@gmail.com</a>
+
+                </div>
+                <div class="phone">
+                    <img class="icon" src="assets/img/icons/phone-solid.svg" alt="">
+                    <a class="link">0559202084 , 0559191202</a>
+
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
