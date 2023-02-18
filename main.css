@@ -211,6 +211,7 @@ a.link:hover {
 }
 
 .logo-stat span {
+    filter: drop-shadow(3px 3px 0 var(--v));
     font-size: 2em;
     font-weight: var(--fw-bold);
     color: var(--main);
@@ -266,6 +267,9 @@ form {
     margin: 1rem 0;
 }
 
+.mail::placeholder{
+    text-align: center;
+}
 .mail:hover {
     transform: none;
 }
@@ -325,11 +329,16 @@ img.icon:hover{
 }
 
 .answer {
+    /* background-color: #14ACB7; */
     max-width: 500px;
+    max-height: 0px;
+    overflow: hidden;
+    /* transition: max-height 3s ease-in; */
+    transition: 0.3s all ease;
     /* border-top: 2px solid var(--b); */
-    padding: 1rem;
+    /* padding: 1rem; */
     border-top: 2px solid var(--b);
-    display: none;
+    /* display: none; */
 }
 
 footer {
@@ -510,9 +519,11 @@ footer ul li a.link,
     #news-letter .content,#FAQ .content{
     margin-top: 2rem;
     display: flex;
+    justify-content: space-between;
     gap: 1rem;
     flex-direction: row-reverse;
  }
+
  #news-letter .content form{
     width: 75%;
  }
