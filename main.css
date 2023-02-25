@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&family=Noto+Serif:ital@1&display=swap');
 :root {
     font-family: Mulish black, sans-serif;
     font-size: larger;
@@ -20,7 +19,7 @@
     --g2: #468489;
     --g3: #A9DDD8;
 
-
+    --fancy-f: 'GIVENY FREE','Noto Serif', serif;
     --ff-heading: 'Mulish', sans-serif;
     --ff-body: 'Mulish', sans-serif;
 
@@ -176,6 +175,24 @@ a.link:hover {
     font-weight: var(--fw-bold);
     text-decoration: none;
 }
+#slogan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    font-family: var(--fancy-f) ;
+    font-size: 2rem;
+    padding-bottom: 0;
+    padding-top: 2.5em;
+}
+#slogan img{
+    width: 100%;
+    padding: 0 1.5rem;
+}
+.verticallogo{
+    transform: scale(.85);
+}
 
 .card {
     display: flex;
@@ -211,7 +228,7 @@ a.link:hover {
 }
 
 .logo-stat span {
-    filter: drop-shadow(3px 3px 0 var(--v));
+    /* filter: drop-shadow(3px 3px 0 var(--b)); */
     font-size: 2em;
     font-weight: var(--fw-bold);
     color: var(--main);
@@ -299,7 +316,8 @@ img.icon {
 
 }
 img.icon:hover{
-    transform: scale(1.1);
+    transition: all .2s ease-in-out;
+    transform: scale(1.2);
     filter: invert(1);
     cursor: pointer;
 }
@@ -318,14 +336,14 @@ img.icon:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* transition: 300ms; */
-
 }
 
 .question {
+    width: 100%;
     margin: 10px 0;
     padding: 1rem;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .answer {
@@ -362,7 +380,7 @@ footer .content {
 }
 
 .name {
-    font-family: GIVENY FREE;
+    font-family: var(--fancy-f);
     font-size: .8rem;
     padding: .5em;
     color: var(--w);
@@ -415,7 +433,7 @@ footer ul li a.link,
 .location a,.phone a,.e-mail a{
     color: var(--w);
  }
- footer a::before{
+ footer a.link::before{
     display: none;
  }
 
@@ -437,7 +455,7 @@ footer ul li a.link,
       }
       
       
-      a::before {
+      a.link::before{
         content: "";
         position: absolute;
         display: block;
@@ -450,7 +468,7 @@ footer ul li a.link,
         transition: transform 0.3s ease;
       }
       
-      a:hover::before {
+      a.link:hover::before {
         transform: scaleX(1);
       }
 
