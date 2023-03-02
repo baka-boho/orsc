@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&family=Noto+Serif&display=swap');
 @import url('https://fonts.cdnfonts.com/css/giveny-free');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&family=Noto+Serif&display=swap');
+
 :root {
     font-family: Mulish black, sans-serif;
     font-size: larger;
@@ -21,7 +22,7 @@
     --g3: #A9DDD8;
 
     --h:var(--main);
-    --fancy-f: 'GIVENY FREE','Noto Serif', serif;
+    --fancy-f: 'Giveny Free', serif;
     --ff-heading: 'Mulish', sans-serif;
     --ff-body: 'Mulish', sans-serif;
 
