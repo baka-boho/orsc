@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&family=Noto+Serif:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&family=Noto+Serif&display=swap');
+@import url('https://fonts.cdnfonts.com/css/giveny-free');
 :root {
     font-family: Mulish black, sans-serif;
     font-size: larger;
@@ -19,6 +20,7 @@
     --g2: #468489;
     --g3: #A9DDD8;
 
+    --h:var(--main);
     --fancy-f: 'GIVENY FREE','Noto Serif', serif;
     --ff-heading: 'Mulish', sans-serif;
     --ff-body: 'Mulish', sans-serif;
@@ -104,7 +106,7 @@ a.link {
 
 
 section {
-    padding: 5em 1.75em;
+    padding: 5em 1em;
 }
 
 section .title {
@@ -151,7 +153,7 @@ nav {
 }
 
 a.link:hover {
-    color: var(--y);
+    color: var(--h);
     cursor: pointer;
 }
 
@@ -183,8 +185,7 @@ section.slogan{
     gap: 10px;
     font-family: var(--fancy-f) ;
     font-size: 2rem;
-    padding-bottom: 0;
-    padding-top: 2.5em;
+    padding: 3.5em .5em .5em;
 }
 .slogan img{
     width: 100%;
@@ -355,7 +356,7 @@ img.icon:hover{
     transition: 0.3s all ease;
     /* border-top: 2px solid var(--b); */
     /* padding: 1rem; */
-    border-top: 2px solid var(--b);
+    /* border-top: 2px solid var(--b); */
     /* display: none; */
 }
 
@@ -460,10 +461,11 @@ footer ul li a.link,
         position: absolute;
         display: block;
         width: 100%;
-        height: 3px;
+        height: 2px;
+        border-radius: 20px;
         bottom: 0;
         left: 0;
-        background-color: var(--y);
+        background-color: var(--h);
         transform: scaleX(0);
         transition: transform 0.3s ease;
       }
