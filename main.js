@@ -32,3 +32,20 @@ function openQuestion(nbr) {
     document.getElementById('b' + nbr).style.transform = "none"
   }
 }
+// console.log(text)
+// }
+// document.getElementById('event-content').scrollBy();
+
+function toggleModel(text){
+  var model=document.getElementById(text)
+  model.classList.toggle("hidden")
+  model.classList.toggle("visible")
+  // console.log(text)
+}
+
+function toggleEvent(text){
+  var card=document.getElementById(text)
+  // console.log(card);
+  card.firstElementChild.classList.toggle("hidden")
+}
+
