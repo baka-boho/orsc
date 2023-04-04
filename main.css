@@ -261,6 +261,13 @@ section.slogan{
     font-size: .8rem;
     font-weight: 300;
 }
+#project-content .card-content{
+    /* background-color: var(--dark); */
+    display: grid;
+    /* gap: .5rem; */
+    align-items: center;
+    grid-auto-rows: 1fr;
+}
 #form-link , .form-link{
     color: var(--v);
 }
