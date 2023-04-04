@@ -266,7 +266,7 @@ section.slogan{
     display: grid;
     /* gap: .5rem; */
     align-items: center;
-    grid-auto-rows: 1fr;
+    grid-auto-rows: 1fr 2fr 1fr;
 }
 #form-link , .form-link{
     color: var(--v);
