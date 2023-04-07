@@ -90,6 +90,8 @@ header {
 }
 
 header .content {
+    
+height: 4rem;
     width: 90vw;
     padding: 1em 0;
     display: flex;

@@ -54,8 +54,8 @@ events = document.getElementById('event-content')
 events = events.children
 projects = document.getElementById('project-content')
 projects = projects.children
-console.log(events)
-console.log(projects)
+// console.log(events)
+// console.log(projects)
 
 let event_options = {
   root: document.querySelector("#event-content"),
@@ -104,15 +104,15 @@ function slide(a, b) {
   right =left+2
   first_id = Object.keys(vis).at(left)
   last_id = Object.keys(vis).at(right)
-console.log(left,first_id,right,last_id)
-console.log('b',b,'l',)  
+// console.log(left,first_id,right,last_id)
+// console.log('b',b,'l',)  
 if(b==1){
     if(right>=Object.values(vis).length-1){
       slide(a,-1)
     }else{
       target=document.getElementById(Object.keys(vis).at(right+1))
-      console.log('=============')
-      console.log(target)
+      // console.log('=============')
+      // console.log(target)
       target.scrollIntoView({ behavior: "smooth",block:"center", inline: "nearest" });
     }
   }
@@ -121,8 +121,8 @@ if(b==1){
       slide(a, 1)
     }else{
       target=document.getElementById(Object.keys(vis).at(left-1))
-      console.log('xxxxxxxxxxxxxxxxx')
-      console.log(target)
+      // console.log('xxxxxxxxxxxxxxxxx')
+      // console.log(target)
       target.scrollIntoView({ behavior: "smooth",block:"center", inline: "nearest" });
     }
   }
