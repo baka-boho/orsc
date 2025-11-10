@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/orsc/',
   build: {
     // Enable minification
     minify: 'terser',
