@@ -1,51 +1,109 @@
-var isopen = false
-function openNav() {
-  document.getElementById("Nav").style.right = "-100%";
-  document.getElementById("close-btn").style.display = "block";
-  document.getElementById("open-btn").style.display = "none";
-  isopen = true
+// ========================================
+// NAVBAR FUNCTIONALITY
+// ========================================
+
+const navbarToggle = document.getElementById('navbar-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileClose = document.getElementById('mobile-close');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+console.log('Mobile menu elements:', { navbarToggle, mobileMenu, mobileClose });
+
+// Open mobile menu
+if (navbarToggle && mobileMenu) {
+  navbarToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Toggle clicked, adding active class');
+    mobileMenu.classList.add('active');
+    navbarToggle.classList.add('hidden');
+    document.body.classList.add('menu-open');
+  });
 }
 
-function closeNav() {
-  if (isopen) {
-    document.getElementById("Nav").style.transition = ".3s";
-    document.getElementById("Nav").style.right = "-200%";
-    document.getElementById("close-btn").style.display = "none";
-    document.getElementById("open-btn").style.display = "block";
-    isopen = false
-  }
+// Close mobile menu
+if (mobileClose && mobileMenu) {
+  mobileClose.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Close clicked, removing active class');
+    mobileMenu.classList.remove('active');
+    navbarToggle.classList.remove('hidden');
+    document.body.classList.remove('menu-open');
+  });
 }
 
-function openQuestion(nbr) {
-  if (document.getElementById(nbr).style.maxHeight == "0px") {
-    // document.getElementById(nbr).style.display = "block"
-    document.getElementById(nbr).style.maxHeight = "300px"
-    document.getElementById(nbr).style.padding = "1rem"
-    document.getElementById(nbr).style.borderTop = "2px solid var(--b)"
-    document.getElementById('b' + nbr).style.transform = "rotate(180deg)"
+// Close menu when clicking backdrop
+if (mobileMenu) {
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu || e.target.classList.contains('mobile-menu')) {
+      console.log('Backdrop clicked, closing menu');
+      mobileMenu.classList.remove('active');
+      navbarToggle.classList.remove('hidden');
+      document.body.classList.remove('menu-open');
+    }
+  });
+}
+
+// Close menu when clicking a link
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    console.log('Link clicked, closing menu');
+    mobileMenu.classList.remove('active');
+    navbarToggle.classList.remove('hidden');
+    document.body.classList.remove('menu-open');
+  });
+});
+
+// Active link highlighting
+const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+const sections = document.querySelectorAll('section[id]');
+
+function setActiveLink() {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionHeight = section.offsetHeight;
+    const sectionTop = section.offsetTop - 100;
+    const sectionId = section.getAttribute('id');
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener('scroll', setActiveLink);
+
+// Header scroll effect
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
   } else {
-    // document.getElementById(nbr).style.display = "none"
-    // document.getElementById(nbr).style.borderTop= "none"
-    document.getElementById(nbr).style.maxHeight = "0px"
-    document.getElementById(nbr).style.padding = "0"
-    document.getElementById(nbr).style.borderTop = "none"
-    document.getElementById('b' + nbr).style.transform = "none"
+    header.classList.remove('scrolled');
   }
-}
-// console.log(text)
-// }
-// document.getElementById('event-content').scrollBy();
+});
+
+// ========================================
+// FAQ ACCORDION
+// ========================================
+// EVENT/PROJECT UTILITIES
+// ========================================
 
 function toggleModel(text) {
   var model = document.getElementById(text)
   model.classList.toggle("hidden")
   model.classList.toggle("visible")
-  // console.log(text)
 }
 
 function toggleEvent(text) {
   var card = document.getElementById(text)
-  // console.log(card);
   card.firstElementChild.classList.toggle("hidden")
 }
 
@@ -54,15 +112,13 @@ events = document.getElementById('event-content')
 events = events.children
 projects = document.getElementById('project-content')
 projects = projects.children
-// console.log(events)
-// console.log(projects)
 
-let event_options = {
+let mainEventOptions = {
   root: document.querySelector("#event-content"),
   rootMargin: "0px",
   threshold: 0.9,
 };
-let project_options = {
+let mainProjectOptions = {
   root: document.querySelector("#project-content"),
   rootMargin: "0px",
   threshold: 0.9,
@@ -70,29 +126,26 @@ let project_options = {
 var event_vis = {}
 var project_vis = {}
 
-let Event_callback = (entries) => {
+let mainEventCallback = (entries) => {
   entries.forEach((entry) => {
     event_vis[entry.target.id] = entry.isIntersecting
   });
 }
-let Project_callback = (entries) => {
+let mainProjectCallback = (entries) => {
   entries.forEach((entry) => {
     project_vis[entry.target.id] = entry.isIntersecting
   });
 };
-let Event_observer = new IntersectionObserver(Event_callback, event_options);
-let Project_observer = new IntersectionObserver(Project_callback, project_options);
+let mainEventObserver = new IntersectionObserver(mainEventCallback, mainEventOptions);
+let mainProjectObserver = new IntersectionObserver(mainProjectCallback, mainProjectOptions);
 
 for (let i = 0; i < events.length; i++) {
-  Event_observer.observe(events[i])
+  mainEventObserver.observe(events[i])
 }
 for (let i = 0; i < projects.length; i++) {
-  Project_observer.observe(projects[i])
+  mainProjectObserver.observe(projects[i])
 }
 
-// events
-// console.log(event);
-// })
 function slide(a, b) {
   if(a==0){
     vis=event_vis
@@ -104,15 +157,12 @@ function slide(a, b) {
   right =left+2
   first_id = Object.keys(vis).at(left)
   last_id = Object.keys(vis).at(right)
-// console.log(left,first_id,right,last_id)
-// console.log('b',b,'l',)  
+
 if(b==1){
     if(right>=Object.values(vis).length-1){
       slide(a,-1)
     }else{
       target=document.getElementById(Object.keys(vis).at(right+1))
-      // console.log('=============')
-      // console.log(target)
       target.scrollIntoView({ behavior: "smooth",block:"center", inline: "nearest" });
     }
   }
@@ -121,10 +171,7 @@ if(b==1){
       slide(a, 1)
     }else{
       target=document.getElementById(Object.keys(vis).at(left-1))
-      // console.log('xxxxxxxxxxxxxxxxx')
-      // console.log(target)
       target.scrollIntoView({ behavior: "smooth",block:"center", inline: "nearest" });
     }
   }
 }
-

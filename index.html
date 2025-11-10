@@ -5,165 +5,188 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
+    
+    <!-- Preload critical LCP image with high priority -->
+    <link rel="preload" href="/assets/img/logo-text.png" as="image" fetchpriority="high">
+    <link rel="preload" href="/main.css" as="style">
+    
     <link rel="icon" type="image/png" href="/assets/img/logo.png">
-    <meta property="og:image" content="assets/img/logo-text.svg">
+    <meta property="og:image" content="assets/img/logo-text.png">
     <meta property="og:title" content="OPERATIONS RESEARCH SOCIETY CLUB">
     <title>ORSClub</title>
-    <link rel="stylesheet" href="main.css">
-    <script defer src="main.js"></script>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        /* Critical styles for LCP */
+        body{margin:0;padding:0}
+        /* .navbar{position:fixed;top:0;left:0;width:100vw;height:80px;background:#fff;z-index:1000;display:flex;align-items:center;padding:0 2rem;box-sizing:border-box} */
+        .navbar-brand{display:flex;align-items:center}
+        .logo{max-width:240px;height:auto;display:block}
+        .slogan{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-top:80px}
+    </style>
+    
+    <!-- Preload and async load main CSS -->
+    <link rel="preload" href="/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/main.css"></noscript>
+    
+    <!-- Defer non-critical JavaScript -->
+    <script type="module" src="/particles.js" defer></script>
+    <script type="module" src="/enhanced.js" defer></script>
+    <script type="module" src="/main.js" defer></script>
+    
+    <!-- Async CSS loader polyfill -->
+    <script>
+        !function(e){"use strict";var t=function(t,n,r){var o,i=e.document,c=i.createElement("link");if(n)o=n;else{var a=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=a[a.length-1]}var d=i.styleSheets;c.rel="stylesheet",c.href=t,c.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(c,n?o:o.nextSibling)});var s=function(e){for(var t=c.href,n=d.length;n--;)if(d[n].href===t)return e();setTimeout(function(){s(e)})};return c.addEventListener&&c.addEventListener("load",r),c.onloadcssdefined=s,s(r),c};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+    </script>
 </head>
 
 <body>
     <header>
-        <div class="content">
-            <a href="#">
-                <img class="logo pointer" src="assets/img/logo-text.svg" alt="operations research society club logo">
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">
+                <img class="logo" src="assets/img/logo-text.png" alt="ORSC Logo" fetchpriority="high">
             </a>
-            <button id="open-btn" class="open-btn pointer" onclick="openNav()">
-                <img class="ham" src="assets/img/icons/ham.svg" alt="menu icon">
+            
+            <ul class="navbar-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#news-letter" class="nav-link">Newsletter</a></li>
+                <li><a href="#FAQ" class="nav-link">FAQ</a></li>
+            </ul>
+            
+            <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
-
-
-            <nav id="Nav" class="links">
-
-                <button id="close-btn" class="close-btn pointer" onclick="closeNav()">
-                    <img class="X" src="assets/img/icons/X.svg" alt="close button icon">
-                </button>
-                <ul>
-                    <li> <a class="link" href="#about" onclick="closeNav()">About-Us</a>
-                    </li>
-                    <li> <a class="link" href="#events" onclick="closeNav()">Events</a>
-                    </li>
-                    <li> <a class="link" href="#projects" onclick="closeNav()">Projects</a>
-                    </li>
-                    <li> <a class="link" href="#news-letter" onclick="closeNav()">News-Letter</a>
-                    </li>
-                    <li> <a class="link" href="#FAQ" onclick="closeNav()">FAQ</a>
-                    </li>
-                </ul>
-
-            </nav>
-
+        </nav>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <ul class="mobile-menu-list">
+                <li><a href="#about" class="mobile-link">About</a></li>
+                <li><a href="#events" class="mobile-link">Events</a></li>
+                <li><a href="#projects" class="mobile-link">Projects</a></li>
+                <li><a href="#news-letter" class="mobile-link">Newsletter</a></li>
+                <li><a href="#FAQ" class="mobile-link">FAQ</a></li>
+            </ul>
         </div>
     </header>
     </div>
     <main>
         <section class="slogan">
             <div class="content">
-                <p>
-                    This is not MATH in THEORY<br>
-                    This is MATH in REAL WORLD
-                </p>
-                <div class="verticallogo">
+                <div class="hero-content">
+                    <p class="hero-tagline scroll-reveal-fade">
+                        This is not MATH in THEORY<br>
+                        This is MATH in REAL WORLD
+                    </p>
+                </div>
+                <div class="verticallogo scroll-reveal-scale">
                     <img src="assets/img/logo.png" alt="operations research society club logo">
-                    <p>
+                    <p class="club-name">
                         Operations<br>
                         Research Society Club
                     </p>
+                    <div class="hero-cta scroll-reveal-fade">
+                        <a href="#about" class="cta-button">
+                            Learn More
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
         <section id="about">
-            <div class="title">
-                <h2>WHAT IS ORSC ?</h2>
+            <div class="title scroll-reveal-fade">
+                <h2>ABOUT US</h2>
             </div>
-            <div class="content">
-                <div style="flex-direction: column; transition:0.3s all ease; cursor: pointer;" class="card"
-                    onclick="toggleModel('model-about')">
-
-                    <!-- <p class="descreption">Operations Research Society Club is the first and only scietific club representing the field of operations research ,Located in USTHB ,Founded in 1990 ,it was relaunched in 2019 by a group of passionate and motivated students to make it the abassador of OR in Algeria.</p> -->
+            <div class="about-container about-bento-grid">
+                <div class="about-card about-main scroll-reveal">
+                    <h3>Who We Are</h3>
                     <p class="descreption">Operations Research Society is one of the most notable scientific clubs in
                         the university of Science & Technology Houari Boumediene in Algeria and the first one to be
                         specialized in the field of Mathematics, more precisely in Operations Research
                     </p>
-                    <!-- <div id="model-about" style="display: none"> -->
-                    <div class="hidden" id="model-about">
-                        <div class="model">
-                            <!-- <button  onclick="closemodel(model-about)">
-                        <img class="X" src="assets/img/icons/X.svg" alt="close button icon">
-                    </button> -->
-                            <h4 class="model-title">Our history :</h4>
-                            <p class="descreption">
-                                It was first created on May 2nd 1990 under the name “Club Recherche opérationnelle”
-                                accumulating several awards & distinctions such as the 2nd best club in our university
-                                in 2016.
-                                In 2019 it was relaunched by a new team and rebranded as ORSC with a new identity and
-                                ambition to tackle topical challenges
-                            </p>
-                            <h4 class="model-title">Our mission :</h4>
-                            <p class="descreption">
-                                Operations Research Society represents the community of OR enthusiasts in Algeria and
-                                looks to promote this discipline and show its importance in different sectors, while
-                                linking students to domain experts.
-                                Today the club’s evolution continues to achieve its mission through diverse activities
-                                and events.</p>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="logo card">
-                    <div class="logo-stat">
-                        <p> <span> 239</span> <br> MEMBERS</p>
-                        <p> <span> 4 </span> <br> EVENTS</p>
-                        <p> <span> 4 </span> <br> PROJECTS</p>
-                    </div>
-                    <img src="assets/img/logo.png" alt="operations research society club logo">
+                <div class="about-card about-history scroll-reveal">
+                    <h4>Our History</h4>
+                    <p class="descreption">
+                        It was first created on May 2nd 1990 under the name "Club Recherche opérationnelle"
+                        accumulating several awards & distinctions such as the 2nd best club in our university
+                        in 2016.
+                        In 2019 it was relaunched by a new team and rebranded as ORSC with a new identity and
+                        ambition to tackle topical challenges
+                    </p>
                 </div>
 
-            </div>
+                <div class="about-card about-mission scroll-reveal">
+                    <h4>Our Mission</h4>
+                    <p class="descreption">
+                        Operations Research Society represents the community of OR enthusiasts in Algeria and
+                        looks to promote this discipline and show its importance in different sectors, while
+                        linking students to domain experts.
+                        Today the club's evolution continues to achieve its mission through diverse activities
+                        and events.
+                    </p>
+                </div>
+
             </div>
         </section>
         <section id="events">
-            <div class="title">
+            <div class="title scroll-reveal-fade">
                 <h2>OUR EVENTS</h2>
             </div>
 
-            <div id="event-content" class="content">
+            <div id="event-content" class="content events-bento-grid">
 
-                <div id="optimusfest" class="event card">
-                    <img src="assets/img/logo optimus fest.png" alt="">
-                    <div class="card-content">
-                        <h4>OPTIMUS FEST</h4>
-                        <p class="desc"> a hackathon where a series of challenges are given to be resolved by contestant
-                            using their modeling and programming skills</p>
-                    </div>
-                </div>
-                <div id="talks" style="color: var(--w); background-color: var(--y);" class="event card">
-                    <img src="assets/img/logo talks.png" alt="">
-                    <div class="card-content">
+                <!-- Card 1: Talks (content) - Tall (1x2) -->
+                <div id="PI" class="event-card event-pi bento-tall">
+                    <img src="assets/img/logo talks.png" alt="Talks" loading="lazy">
+                    <div class="event-card-content">
                         <h4>TALKS</h4>
-                        <p class="desc"> a series of conferences and talks on subjects related to Operations Research
-                            given by experts in academia & industry</p>
+                        <p class="event-desc">A series of conferences and talks on subjects related to Operations Research given by experts in academia & industry</p>
                     </div>
                 </div>
-                <!-- <div id="Origin" style="color: var(--w); background-color: var(--g3);" class="event card">
-                    <img src="assets/img/Logo ORigin 1.png" alt="">
-                    <div class="card-content">
-                        <h4>ORIGIN</h4>
-                        <p class="desc">event descreptionevent descreptionevent descreption</p>
-                    </div>
-                </div> -->
 
-                <div id="PI" style="color: var(--w); background-color: var(--v);" class="event card">
-                    <img src="assets/img/logo PI.png" alt="">
-                    <div class="card-content">
-                        <h4>PI week</h4>
-                        <p class="desc">a week-long celebration of Pi day by putting up stands in different universities
-                        </p>
+                <!-- Card 2: Optimus Fest - Small square (1x1) -->
+                <div id="optimusfest" class="event-card event-optimus bento-small">
+                    <img src="assets/img/logo optimus fest.png" alt="Optimus Fest" loading="lazy">
+                    <div class="event-card-content">
+                        <h4>OPTIMUS FEST</h4>
+                        <p class="event-desc">A hackathon where a series of challenges are given to be resolved by contestants using their modeling and programming skills</p>
                     </div>
                 </div>
-                <div id="camp" style="color: var(--b); background-color: var(--g); " class="event card">
-                    <img src="assets/img/logo camp 1.png" alt="">
-                    <div class="card-content">
+
+                <!-- Card 3: PI Week (content) - Small square (1x1) -->
+                <div id="talks" class="event-card event-talks bento-small">
+                    <img src="assets/img/logo PI.png" alt="PI Week" loading="lazy">
+                    <div class="event-card-content">
+                        <h4>PI WEEK</h4>
+                        <p class="event-desc">A week-long celebration of Pi day by putting up stands in different universities</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: ORS Camp - Wide (2x1) -->
+                <div id="camp" class="event-card event-camp bento-wide">
+                    <img src="assets/img/logo camp 1.png" alt="ORS Camp" loading="lazy">
+                    <div class="event-card-content">
                         <h4>ORS CAMP</h4>
-                        <p class="desc"> a camp made up of a series of workshops in the field of Operations Research by
-                            domain experts</p>
+                        <p class="event-desc">A camp made up of a series of workshops in the field of Operations Research by domain experts</p>
                     </div>
                 </div>
-                <!-- <div class="scroll-buttons">
-                    <button id="left-scroll" class="scroll"> L </button>
-    <button id="right-scroll" class="scroll"> r </button>
-</div> -->
+
             </div>
             <div class="scroll-buttons">
             <span onclick="slide(0,-1)">
@@ -176,84 +199,68 @@
             </div>
         </section>
         <section id="projects">
-            <div class="title">
+            <div class="title scroll-reveal-fade">
                 <h2>OUR PROJECTS</h2>
             </div>
             <div id="project-content" class="content">
 
-                <div id="TSP" class="event card">
-                    <!-- <img src="assets/img/logo optimus fest.png" alt=""> -->
+                <div id="TSP" class="project-card scroll-reveal">
                     <div class="card-content">
-                        <h4>TSP web app</h4>
-                        <p class="desc"> a web app that introduces the Traveling Salesman Problem by providing the user
-                            with the ability to attempt to solve an instance of the problem with a set of Algerian
-                            wilayas (cities) and compare their result with that of the genetic algorithm .<br> <br>
-                            Link on
-                            <a class="form-link" href="https://sws-zerbout-orcs-tsp-maptest-uorjzw.streamlit.app/ "
-                                rel="noreferrer noopener" target="_blank">
-                                Streamlit</a> <br> <br>
-                            Link on <a class="form-link" href="https://github.com/ORSClub" rel="noreferrer noopener"
-                                target="_blank"> Github</a>
-                        </p>
+                        <h4>TSP Web App</h4>
+                        <p class="desc">A web app that introduces the Traveling Salesman Problem by providing users with the ability to attempt solving an instance of the problem with a set of Algerian wilayas (cities) and compare their result with that of the genetic algorithm.</p>
+                        <div class="project-links">
+                            <a class="project-link" href="https://sws-zerbout-orcs-tsp-maptest-uorjzw.streamlit.app/" rel="noreferrer noopener" target="_blank">
+                                <span>Try It</span>
+                            </a>
+                            <a class="project-link" href="https://github.com/ORSClub" rel="noreferrer noopener" target="_blank">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div id="Knapsack" class="event card">
-                    <!-- <img src="assets/img/logo optimus fest.png" alt=""> -->
+
+                <div id="Knapsack" class="project-card scroll-reveal">
                     <div class="card-content">
-                        <h4>Knapsack web app</h4>
-
-
-                        <p class="desc"> a web app that introduces the Knapsack Problem by providing the user with the
-                            ability to attempt to solve an instance of the problem and compare their result with that of
-                            the branch and bound method .
-                            <br> <br>
-                            <br> <br>
-                            Link on
-                            <a class="form-link"
-                                href="https://malikbf5-orsc-knapsack-knapsackstreamlit-ot9jbx.streamlit.app/"
-                                rel="noreferrer noopener" target="_blank">
-                                Streamlit</a> <br> <br>
-                            Link on <a class="form-link" href="https://github.com/ORSClub" rel="noreferrer noopener"
-                                target="_blank"> Github</a>
-                        </p>
+                        <h4>Knapsack Web App</h4>
+                        <p class="desc">A web app that introduces the Knapsack Problem by providing users with the ability to attempt solving an instance of the problem and compare their result with that of the branch and bound method.</p>
+                        <div class="project-links">
+                            <a class="project-link" href="https://malikbf5-orsc-knapsack-knapsackstreamlit-ot9jbx.streamlit.app/" rel="noreferrer noopener" target="_blank">
+                                <span>Try It</span>
+                            </a>
+                            <a class="project-link" href="https://github.com/ORSClub" rel="noreferrer noopener" target="_blank">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div id="orgame" class="event card">
-                    <!-- <img src="assets/img/logo optimus fest.png" alt=""> -->
+
+                <div id="orgame" class="project-card scroll-reveal">
                     <div class="card-content">
-                        <h4>OR game</h4>
-
-
-                        <p class="desc">OR game is a desktop multilevel game where the player has to go through a series
-                            of challenges based on problems in Operations Research the first one being based on the
-                            Knapsack problem where the player has to pick the items they need to go on a camping trip
-                            .<br> <br>
-                            Link on
-                            <a class="form-link" href="https://merouane-mechedal.itch.io/or-game"
-                                rel="noreferrer noopener" target="_blank">
-                                itch.io</a> <br> <br>
-                            Link on <a class="form-link" href="https://github.com/ORSClub" rel="noreferrer noopener"
-                                target="_blank"> Github</a>
-                        </p>
+                        <h4>OR Game</h4>
+                        <p class="desc">A desktop multilevel game where players go through a series of challenges based on problems in Operations Research. The first level is based on the Knapsack problem where the player picks items needed for a camping trip.</p>
+                        <div class="project-links">
+                            <a class="project-link" href="https://merouane-mechedal.itch.io/or-game" rel="noreferrer noopener" target="_blank">
+                                <span>Play Now</span>
+                            </a>
+                            <a class="project-link" href="https://github.com/ORSClub" rel="noreferrer noopener" target="_blank">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div id="WOA" class="event card">
-                    <!-- <img src="assets/img/logo optimus fest.png" alt=""> -->
-                    <div class="card-content">
-                        <h4>WOA</h4>
-                        <p class="desc"> A research project on the Whale optimization algorithm .
 
-                            <br> <br>
-                            <br> <br>
-                            <br> <br>
-                            <br> <br>
-                            Link on
-                            <a class="form-link" href="https://medium.com/@malikbf5/whale-optimization-algorithm-woa-bbaf8484490c
-                            " rel="noreferrer noopener" target="_blank">
-                                Medium</a> <br> <br>
-                            Link on <a class="form-link" href="https://github.com/ORSClub" rel="noreferrer noopener"
-                                target="_blank"> Github</a>
-                        </p>
+                <div id="WOA" class="project-card scroll-reveal">
+                    <div class="card-content">
+                        <h4>Whale Optimization Algorithm</h4>
+                        <p class="desc">A research project exploring the Whale Optimization Algorithm (WOA), a nature-inspired metaheuristic optimization algorithm that is designed to solve complex optimization problems. The algorithm simulates how whales search for and attack prey to converge on an optimal solution.</p>
+                        <div class="project-links">
+                            <a class="project-link" href="https://medium.com/@malikbf5/whale-optimization-algorithm-woa-bbaf8484490c" rel="noreferrer noopener" target="_blank">
+                                <span>Read Article</span>
+                            </a>
+                            <a class="project-link" href="https://github.com/ORSClub" rel="noreferrer noopener" target="_blank">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,167 +271,159 @@
                 <span onclick="slide(1,1)">
                     <img class="scroll-btn left" src="assets/img/icons/right.svg" alt="">
                 </span>
-                </div>
+            </div>
         </section>
         <section id="news-letter">
-            <div class="title">
-                <h2>JOIN OUR MAILING LIST</h2>
+            <div class="title scroll-reveal-fade">
+                <h2>STAY UPDATED</h2>
             </div>
-            <div class="content">
-                <div class="vis">
-                    <img class="drop-shadow" src="assets/img/art-mail.png" alt="mail art">
+            <div class="content newsletter-content">
+                <div class="newsletter-text scroll-reveal">
+                    <h3>Join Our Newsletter</h3>
+                    <p>Get the latest updates on events, workshops, and opportunities. Be part of our growing community.</p>
                 </div>
-                <form id="mailing" action="">
-                    <!-- <p class="card mail"> Email</p> -->
-                    <input class="card mail no-outline" id="email" placeholder="orsc@mail.com" type="email">
-                    <button type="submit" class="card mail">Subscrcibe</button>
+                <form id="mailing" action="" class="newsletter-form scroll-reveal">
+                    <input class="newsletter-input" id="email" placeholder="Enter your email" type="email" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
                 </form>
-
             </div>
         </section>
         <section id="FAQ">
-            <div class="title">
+            <div class="title scroll-reveal-fade">
                 <h2>FREQUENTLY ASKED QUESTIONS</h2>
             </div>
             <div class="content">
 
                 <div class="questions">
-                    <div class=" card" onclick="openQuestion(1)">
-                        <div class="question">
-                            <p>
-                                When are the registrations open ?
-                            </p>
-                            <button id="b1" class="expand pointer" onclick="openQuestion(1)">
-                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(1)">
-                            </button>
-                        </div>
-                        <div id="1" class="answer">
-                            <P>Registrations are open year round, you can join Operations Research Society Club by
-                                following this form <a id="form-link"
-                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfvDDnx_Mfk0fOhiy5vrpglcOdJ2anVP6q5v5hDaybXhMJakQ/viewform"
-                                    rel="noreferrer noopener" target="_blank">link</a>
-                                .</P>
+                    <!-- Question 1 -->
+                    <div class="card scroll-reveal">
+                        <input type="checkbox" id="faq1" class="faq-toggle" hidden>
+                        <label for="faq1" class="question">
+                            <p>When are the registrations open?</p>
+                            <span class="expand">
+                                <img src="assets/img/icons/down.svg" alt="" loading="lazy">
+                            </span>
+                        </label>
+                        <div class="answer">
+                            <p>Registrations are open year round, you can join Operations Research Society Club by following this <a id="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfvDDnx_Mfk0fOhiy5vrpglcOdJ2anVP6q5v5hDaybXhMJakQ/viewform" rel="noreferrer noopener" target="_blank">form link</a>.</p>
                         </div>
                     </div>
-                    <div class=" card" onclick="openQuestion(2)">
-                        <div class="question">
-                            <p>
-                                What do i need to be accepted ?
-                            </p>
-                            <button id="b2" class="expand pointer" onclick="openQuestion(2)">
-                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(2)">
-                            </button>
-                        </div>
-                        <div id="2" class="answer">
-                            <P>What we care about most at ORSC is to bring aboard motivated people who are
-                                enthusiastically curious about OR and are looking to learn and work on cool events and
-                                projects within the club .</P>
-                        </div>
-                    </div>
-                    <div class=" card">
-                        <div class="question" onclick="openQuestion(3)">
-                            <p>
-                                Who can join our club ? </p>
 
-                            <button id="b3" class="expand pointer" onclick="openQuestion(3)">
-                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(3)">
-                            </button>
-                        </div>
-                        <div id="3" class="answer">
-                            <P>All motivated people are welcome, the only requirement is to be a university student .
-                            </P>
-                        </div>
-                    </div>
-                    <div class=" card" onclick="openQuestion(4)">
-                        <div class="question">
-                            <p>
-                                What do we do ?
-                            </p>
-                            <button id="b4" class="expand pointer" onclick="openQuestion(4)">
-                                <img src="assets/img/icons/down.svg" alt="down arrow icon" onclick="openQuestion(4)">
-                            </button>
-                        </div>
-                        <div id="4" class="answer">
-                            <P>As a member of ORSC you’ll work on projects and events related to OR, perform tasks
-                                within your club department, learn new things in workshops and training, and make new
-                                friends and acquaintances .</P>
+                    <!-- Question 2 -->
+                    <div class="card scroll-reveal">
+                        <input type="checkbox" id="faq2" class="faq-toggle" hidden>
+                        <label for="faq2" class="question">
+                            <p>What do I need to be accepted?</p>
+                            <span class="expand">
+                                <img src="assets/img/icons/down.svg" alt="" loading="lazy">
+                            </span>
+                        </label>
+                        <div class="answer">
+                            <p>What we care about most at ORSC is to bring aboard motivated people who are enthusiastically curious about OR and are looking to learn and work on cool events and projects within the club.</p>
                         </div>
                     </div>
-                </div>
-                <div class="vis">
-                    <img class="drop-shadow" src="assets/img/art-faq.png" alt="mail art">
+
+                    <!-- Question 3 -->
+                    <div class="card scroll-reveal">
+                        <input type="checkbox" id="faq3" class="faq-toggle" hidden>
+                        <label for="faq3" class="question">
+                            <p>Who can join our club?</p>
+                            <span class="expand">
+                                <img src="assets/img/icons/down.svg" alt="" loading="lazy">
+                            </span>
+                        </label>
+                        <div class="answer">
+                            <p>All motivated people are welcome, the only requirement is to be a university student.</p>
+                        </div>
+                    </div>
+                    <div class="card scroll-reveal">
+                        <input type="checkbox" id="faq4" class="faq-toggle" hidden>
+                        <label for="faq4" class="question">
+                            <p>What do we do?</p>
+                            <span class="expand">
+                                <img src="assets/img/icons/down.svg" alt="" loading="lazy">
+                            </span>
+                        </label>
+                        <div class="answer">
+                            <p>As a member of ORSC you'll work on projects and events related to OR, perform tasks within your club department, learn new things in workshops and training, and make new friends and acquaintances.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
     <footer>
         <div class="content">
-            <div class="name">
-                <p>
-                    OPERATIONS RESEARCH SOCIETY CLUB
-                </p>
-            </div>
-            <div class="social-links">
-                <a href="https://www.facebook.com/orsocietyclub/" rel="noreferrer noopener" target="_blank">
-                    <img class="icon " src="assets/img/icons/facebook.svg" alt="">
-                </a>
-                <a href="https://www.instagram.com/orsocietyclub/" rel="noreferrer noopener" target="_blank">
-                    <img class="icon" src="assets/img/icons/instagram.svg" alt="">
-                </a>
-                <a href="https://www.linkedin.com/company/orsocietyclub/" rel="noreferrer noopener" target="_blank">
-                    <img class="icon" src="assets/img/icons/linkedin.svg" alt="">
-                </a>
-                <a href="https://github.com/ORSClub" rel="noreferrer noopener" target="_blank">
-                    <img class="icon" src="assets/img/icons/github.svg" alt="">
-                </a>
-                <a href="https://linktr.ee/orsocietyclub" rel="noreferrer noopener" target="_blank">
-                    <img class="icon" src="assets/img/icons/discord.svg" alt="">
-                </a>
-
-                <a href="https://www.tiktok.com/@operations_research_club" rel="noreferrer noopener" target="_blank">
-                    <img class="icon" src="assets/img/icons/tiktok.svg" alt="">
-                </a>
-                <a href="https://www.youtube.com/@OperationsResearchSocietyClub" rel="noreferrer noopener"
-                    target="_blank">
-                    <img class="icon" src="assets/img/icons/youtube.svg" alt="">
-                </a>
-            </div>
-            <div class="site-links">
-                <ul>
-                    <li> <a class="link" href="#about">About-Us</a>
-                    </li>
-                    <li> <a class="link" href="#events">Events</a>
-                    </li>
-                    <li> <a class="link" href="#projects">Projects</a>
-                    </li>
-                    <li> <a class="link" href="#news-letter">News-Letter</a>
-                    </li>
-                    <li> <a class="link" href="#FAQ">FAQ</a>
-                    </li>
-                </ul>
-
-            </div>
-            <div class="info-grid">
-                <div class="location">
-                    <img class="icon" src="assets/img/icons/location-dot-solid.svg" alt="">
-                    <a class="link">
-                        University of Sciences and Technology Houari Boumediene<br>
-                        BP 32 EL ALIA Bab Ezzouar <br>
-                        Bab Ezzouar, 16111
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <h3>ORSC</h3>
+                <p>Operations Research Society Club - Empowering students with data science, optimization, and analytical skills for real-world impact.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/orsocietyclub/" rel="noreferrer noopener" target="_blank" aria-label="Facebook">
+                        <img src="assets/img/icons/facebook.svg" alt="Facebook" loading="lazy">
+                    </a>
+                    <a href="https://www.instagram.com/orsocietyclub/" rel="noreferrer noopener" target="_blank" aria-label="Instagram">
+                        <img src="assets/img/icons/instagram.svg" alt="Instagram" loading="lazy">
+                    </a>
+                    <a href="https://www.linkedin.com/company/orsocietyclub/" rel="noreferrer noopener" target="_blank" aria-label="LinkedIn">
+                        <img src="assets/img/icons/linkedin.svg" alt="LinkedIn" loading="lazy">
+                    </a>
+                    <a href="https://github.com/ORSClub" rel="noreferrer noopener" target="_blank" aria-label="GitHub">
+                        <img src="assets/img/icons/github.svg" alt="GitHub" loading="lazy">
+                    </a>
+                    <a href="https://linktr.ee/orsocietyclub" rel="noreferrer noopener" target="_blank" aria-label="Discord">
+                        <img src="assets/img/icons/discord.svg" alt="Discord" loading="lazy">
+                    </a>
+                    <a href="https://www.youtube.com/@OperationsResearchSocietyClub" rel="noreferrer noopener" target="_blank" aria-label="YouTube">
+                        <img src="assets/img/icons/youtube.svg" alt="YouTube" loading="lazy">
                     </a>
                 </div>
-                <div class="e-mail">
-                    <img class="icon" src="assets/img/icons/envelope-solid.svg" alt="">
-                    <a class="link">crorsclub@gmail.com</a>
+            </div>
 
-                </div>
-                <div class="phone">
-                    <img class="icon" src="assets/img/icons/phone-solid.svg" alt="">
-                    <a class="link">05 52 85 63 91 ,06 55 20 81 99 </a>
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#news-letter">Newsletter</a></li>
+                    <li><a href="#FAQ">FAQ</a></li>
+                </ul>
+            </div>
 
+            <!-- Resources -->
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#events">Join Us</a></li>
+                    <li><a href="#projects">Our Work</a></li>
+                    <li><a href="#about">Our Team</a></li>
+                </ul>
+            </div>
 
+            <!-- Contact -->
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <img src="assets/img/icons/location-dot-solid.svg" alt="Location" loading="lazy">
+                        <a href="https://www.google.com/maps/place/Faculty+of+Mathematics/@36.7172521,3.183068,18.35z/data=!4m14!1m7!3m6!1s0x128e518cfb10fb87:0x2b530bef27585812!2sFaculty+of+Computer+Science!8m2!3d36.715756!4d3.1851798!16s%2Fg%2F11dxlg5y8c!3m5!1s0x128e516d83022ec3:0x13d6af49c30f12a2!8m2!3d36.7172242!4d3.1838639!16s%2Fg%2F11gnsc8dyn?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Faculty of Mathematics, University Of Science And Technology Houari Boumediene, BP 32 EL ALIA 16111, Bab Ezzouar</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <img src="assets/img/icons/envelope-solid.svg" alt="Email" loading="lazy">
+                        <a href="mailto:crorsclub@gmail.com">crorsclub@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <img src="assets/img/icons/phone-solid.svg" alt="Phone" loading="lazy">
+                        <span>05 52 85 63 91</span>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Operations Research Society Club. All rights reserved.</p>
         </div>
     </footer>
 
