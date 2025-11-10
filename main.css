@@ -48,13 +48,11 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
     background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 50%, var(--color-primary-200) 100%);
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     width: 100%;
     overflow-x: hidden;
     /* height: 100%; */
-    min-height: 100vh;
     min-height: 100dvh; /* Dynamic viewport height for mobile */
-    min-height: 100lvh; /* Dynamic viewport height for mobile */
 }
 
 body {
