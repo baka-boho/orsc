@@ -254,22 +254,25 @@
   }
 }
 
-/* Typing Animation */
+/* Typing Animation - Uses transform for better performance */
 @keyframes typing {
   from {
-    width: 0;
+    transform: scaleX(0);
+    transform-origin: left;
   }
   to {
-    width: 100%;
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }
 
+/* Cursor blink - Uses opacity for better performance */
 @keyframes blink {
   0%, 100% {
-    border-right-color: transparent;
+    opacity: 0;
   }
   50% {
-    border-right-color: currentColor;
+    opacity: 1;
   }
 }
 

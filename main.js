@@ -108,9 +108,9 @@ function toggleEvent(text) {
 }
 
 
-events = document.getElementById('event-content')
+let events = document.getElementById('event-content')
 events = events.children
-projects = document.getElementById('project-content')
+let projects = document.getElementById('project-content')
 projects = projects.children
 
 let mainEventOptions = {
@@ -147,22 +147,23 @@ for (let i = 0; i < projects.length; i++) {
 }
 
 function slide(a, b) {
+  let vis;
   if(a==0){
     vis=event_vis
   }
   if(a==1){
     vis=project_vis
   }
-  left = Object.values(vis).indexOf(true)
-  right =left+2
-  first_id = Object.keys(vis).at(left)
-  last_id = Object.keys(vis).at(right)
+  let left = Object.values(vis).indexOf(true)
+  let right = left+2
+  let first_id = Object.keys(vis).at(left)
+  let last_id = Object.keys(vis).at(right)
 
-if(b==1){
+  if(b==1){
     if(right>=Object.values(vis).length-1){
       slide(a,-1)
     }else{
-      target=document.getElementById(Object.keys(vis).at(right+1))
+      let target=document.getElementById(Object.keys(vis).at(right+1))
       target.scrollIntoView({ behavior: "smooth",block:"center", inline: "nearest" });
     }
   }
@@ -170,7 +171,7 @@ if(b==1){
     if(left<=0){
       slide(a, 1)
     }else{
-      target=document.getElementById(Object.keys(vis).at(left-1))
+      let target=document.getElementById(Object.keys(vis).at(left-1))
       target.scrollIntoView({ behavior: "smooth",block:"center", inline: "nearest" });
     }
   }
