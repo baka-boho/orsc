@@ -10,11 +10,8 @@
    FONT IMPORTS
    ======================================== */
 
-/* Inter - Primary font for headings and UI elements */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Source Sans Pro - Secondary font for body text */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+/* Mulish (formerly Muli) - Primary font for headings, UI elements, and body text */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Giveny Free - Fancy/Display font */
 @import url('https://fonts.cdnfonts.com/css/giveny-free?display=swap');

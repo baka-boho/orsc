@@ -1169,10 +1169,10 @@ section.slogan .content {
 }
 
 .scroll-btn:hover {
-    background-color: var(--color-primary-500);
+    background-color: var(--color-primary-600);
     transform: scale(1.1);
     box-shadow: var(--shadow-md);
-    border-color: var(--color-primary-600);
+    border-color: var(--color-primary-700);
 }
 
 .scroll-btn:hover img {
