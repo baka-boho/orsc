@@ -71,6 +71,10 @@
     <script type="module" src="/enhanced.js" defer></script>
     <script type="module" src="/main.js" defer></script>
     
+    <!-- GSAP for hero animation -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    
     <!-- Async CSS loader polyfill -->
     <script>
         !function(e){"use strict";var t=function(t,n,r){var o,i=e.document,c=i.createElement("link");if(n)o=n;else{var a=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=a[a.length-1]}var d=i.styleSheets;c.rel="stylesheet",c.href=t,c.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(c,n?o:o.nextSibling)});var s=function(e){for(var t=c.href,n=d.length;n--;)if(d[n].href===t)return e();setTimeout(function(){s(e)})};return c.addEventListener&&c.addEventListener("load",r),c.onloadcssdefined=s,s(r),c};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
@@ -120,10 +124,81 @@
         <section class="slogan">
             <div class="content">
                 <div class="hero-content">
-                    <p class="hero-tagline scroll-reveal-fade">
-                        This is not MATH in THEORY<br>
-                        This is MATH in REAL WORLD
-                    </p>
+                    <div class="hero-tagline-animated">
+                        <!-- Line 1: Symbol version that morphs to full text -->
+                        <span class="line line-1">
+                            <span class="word">this</span>
+                            <span class="word">is</span>
+                            <span class="word math-word">
+                                <span class="math-symbol symbol-not">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="symbolGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#8b7bc8;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#6b5aa6;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M3 9.05773C3 9.05773 3 8.9189 3 8.64123C3 8.36357 3.14951 8.14998 3.44854 8.00046H20.3007C20.4502 8.06454 20.6104 8.20337 20.7813 8.41696V16.1382C20.5036 16.4159 20.29 16.5547 20.1405 16.5547C20.055 16.5547 19.9803 16.544 19.9162 16.5226C19.8521 16.5013 19.7987 16.4586 19.756 16.3945C19.7133 16.3304 19.6706 16.2877 19.6279 16.2663C19.5852 16.245 19.5531 16.2023 19.5318 16.1382L19.4997 12.7101V9.282H3.44854C3.14951 9.13248 3 8.9189 3 8.64123V9.05773Z" fill="url(#symbolGradient1)"/>
+                                    </svg>
+                                </span>
+                                <span class="hidden-text text-not">not</span>
+                            </span>
+                            <span class="word">math</span>
+                            <span class="word math-word">
+                                <span class="math-symbol symbol-in-1">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="symbolGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#8b7bc8;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#6b5aa6;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M8.22214 11.4372H16.7606V12.2428H8.22214C8.46379 14.9412 10.7797 16.8745 13.6191 16.8745H16.7606V17.68H13.5788C10.1352 17.68 7.39648 15.0621 7.39648 11.84C7.39648 8.61793 10.1352 6 13.5788 6H16.7606V6.80552H13.6191C10.7797 6.80552 8.46379 8.73876 8.22214 11.4372Z" fill="url(#symbolGradient2)"/>
+                                    </svg>
+                                </span>
+                                <span class="hidden-text text-in-1">in</span>
+                            </span>
+                            <span class="word">theory</span>
+                        </span>
+                        
+                        <!-- Line 2: Symbol version that morphs to full text -->
+                        <span class="line line-2">
+                            <span class="word">this</span>
+                            <span class="word">is</span>
+                            <span class="word">math</span>
+                            <span class="word math-word">
+                                <span class="math-symbol symbol-in-2">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="symbolGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#8b7bc8;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#6b5aa6;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M8.22214 11.4372H16.7606V12.2428H8.22214C8.46379 14.9412 10.7797 16.8745 13.6191 16.8745H16.7606V17.68H13.5788C10.1352 17.68 7.39648 15.0621 7.39648 11.84C7.39648 8.61793 10.1352 6 13.5788 6H16.7606V6.80552H13.6191C10.7797 6.80552 8.46379 8.73876 8.22214 11.4372Z" fill="url(#symbolGradient3)"/>
+                                    </svg>
+                                </span>
+                                <span class="hidden-text text-in-2">in</span>
+                            </span>
+                            <span class="word">the</span>
+                            <span class="word math-word">
+                                <span class="math-symbol symbol-real">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="symbolGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#8b7bc8;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#6b5aa6;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M7.26025 7.36895C7.26025 6.70249 7.31429 6.52236 8.66523 6.52236H9.0615V6C8.6292 6.03603 7.08013 6.03603 6.53976 6.03603C5.99938 6.03603 4.4323 6.03603 4 6V6.52236H4.39627C5.74721 6.52236 5.80125 6.70249 5.80125 7.36895V16.9336C5.80125 17.6 5.74721 17.7801 4.39627 17.7801H4V18.3025C4.4323 18.2665 5.98137 18.2665 6.52174 18.2665C7.06212 18.2665 8.6292 18.2665 9.0615 18.3025V17.7801H8.66523C7.31429 17.7801 7.26025 17.6 7.26025 16.9336V7.36895Z" fill="url(#symbolGradient4)"/>
+                                        <path d="M14.3135 12.1783C16.0967 11.764 17.4837 10.6292 17.4837 9.24224C17.4837 7.49503 15.4483 6 12.8545 6H7.46875V6.52236H7.829C9.1259 6.52236 9.17993 6.70249 9.17993 7.36895V16.9336C9.17993 17.6 9.1259 17.7801 7.829 17.7801H7.46875V18.3025C7.88304 18.2665 9.36006 18.2665 9.88242 18.2665C10.4048 18.2665 11.8998 18.2665 12.3141 18.3025V17.7801H11.9539C10.657 17.7801 10.6029 17.6 10.6029 16.9336V12.3224H12.6924C13.3948 12.3224 14.0613 12.5205 14.5476 13.0249C15.1601 13.7093 15.1601 14.0876 15.1601 15.3305C15.1601 16.7534 15.1601 17.2218 15.9526 17.9963C16.2228 18.2665 16.9793 18.6808 17.988 18.6808C19.393 18.6808 19.6272 17.1137 19.6272 16.7354C19.6272 16.6273 19.6272 16.4652 19.429 16.4652C19.2489 16.4652 19.2489 16.5733 19.2309 16.7534C19.1408 17.8342 18.6185 18.3205 18.0421 18.3205C17.2135 18.3205 17.0334 17.4739 16.8893 16.5193C16.8713 16.3932 16.7632 15.6186 16.7091 15.1683C16.5831 14.2677 16.511 13.6913 15.9706 13.1329C15.7725 12.9348 15.3042 12.4485 14.3135 12.1783ZM12.6203 11.9621H10.6029V7.24286C10.6029 6.82857 10.6029 6.61242 10.9812 6.54037C11.1433 6.52236 11.6837 6.52236 12.0439 6.52236C13.5029 6.52236 15.8085 6.52236 15.8085 9.24224C15.8085 10.8093 14.9619 11.9621 12.6203 11.9621Z" fill="url(#symbolGradient4)"/>
+                                    </svg>
+                                </span>
+                                <span class="hidden-text text-real">real</span>
+                            </span>
+                            <span class="word">world</span>
+                        </span>
+                    </div>
                 </div>
                 <div class="verticallogo scroll-reveal-scale">
                     <img src="assets/img/logo.png" alt="operations research society club logo">

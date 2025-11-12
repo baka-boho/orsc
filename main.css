@@ -478,6 +478,125 @@ section.slogan .content {
     text-shadow: 2px 2px 4px var(--overlay-white-50);
 }
 
+/* Animated Hero Tagline Styles */
+.hero-tagline-animated {
+    font-family: var(--font-fancy);
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    color: #4a4a6a;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    align-items: center;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.hero-tagline-animated .line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.hero-tagline-animated .word {
+    display: inline-block;
+    margin: 0 0.08em;
+    transition: transform 0.2s ease;
+    position: relative;
+    font-size: inherit !important;
+    transform: none !important;
+    scale: none !important;
+}
+
+.hero-tagline-animated .word:hover {
+    transform: translateY(-4px) !important;
+}
+
+.hero-tagline-animated .math-word {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: fit-content;
+    margin: 0 0.08em;
+    font-size: inherit !important;
+    transform: none !important;
+    scale: none !important;
+}
+
+.hero-tagline-animated .math-symbol {
+    display: inline-block;
+    color: inherit;
+    font-weight: inherit;
+    position: relative;
+    vertical-align: middle;
+    font-size: inherit !important;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hero-tagline-animated .math-symbol svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    display: inline-block;
+    fill: currentColor;
+}
+
+.hero-tagline-animated .hidden-text {
+    display: none;
+    opacity: 0;
+    font-size: inherit !important;
+    transform: none !important;
+    scale: none !important;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hero-tagline-animated .hidden-text.visible {
+    display: inline-block;
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .hero-tagline-animated {
+        font-size: clamp(2rem, 5vw, 3rem);
+        gap: 0.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-tagline-animated {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        gap: 0.25em;
+    }
+    
+    .hero-tagline-animated .line {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+    
+    .hero-tagline-animated .word {
+        margin: 0 0.06em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-tagline-animated {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+    
+    .hero-tagline-animated .word {
+        margin: 0 0.05em;
+    }
+}
+
 .verticallogo {
     display: flex;
     flex-direction: column;
@@ -496,10 +615,10 @@ section.slogan .content {
     font-family: var(--font-fancy);
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: var(--font-weight-normal);
-    color: var(--color-primary-800);
+    color: #4a4a6a;
     text-align: center;
     line-height: var(--line-height-tight);
-    text-shadow: 1px 1px 2px var(--overlay-white-50);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Hero CTA Buttons */
